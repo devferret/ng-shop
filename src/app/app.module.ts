@@ -20,6 +20,7 @@ import { AdminProductsComponent } from './admin/admin-products/admin-products.co
 import { AdminOrdersComponent } from './admin/admin-orders/admin-orders.component';
 import { LoginComponent } from './login/login.component';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap/modal/modal';
+import { AuthGuardService } from './services/auth-guard.service';
 
 @NgModule({
   declarations: [
@@ -42,19 +43,23 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap/modal/modal';
     AngularFireAuthModule,
     NgbModule.forRoot(),
     RouterModule.forRoot([
+      // Anonymouse accessable
       { path: '', component: HomeComponent },
-      { path: 'my-orders', component: MyOrdersComponent },
       { path: 'products', component: ProductsComponent },
       { path: 'shopping-cart', component: ShoppingCartComponent },
-      { path: 'check-out', component: CheckOutComponent },
-      { path: 'order-success', component: OrderSuccessComponent },
       { path: 'login', component: LoginComponent },
-      { path: 'admin/products', component: AdminProductsComponent },
-      { path: 'admin/orders', component: AdminOrdersComponent }
+      // Normal User accessable
+      { path: 'my-orders', component: MyOrdersComponent, canActivate: [AuthGuardService] },
+      { path: 'check-out', component: CheckOutComponent, canActivate: [AuthGuardService]  },
+      { path: 'order-success', component: OrderSuccessComponent, canActivate: [AuthGuardService]  },
+      // Only Admin accessable
+      { path: 'admin/products', component: AdminProductsComponent, canActivate: [AuthGuardService]  },
+      { path: 'admin/orders', component: AdminOrdersComponent, canActivate: [AuthGuardService]  }
     ])
   ],
   providers: [
-    AuthService
+    AuthService,
+    AuthGuardService
   ],
   bootstrap: [AppComponent]
 })
