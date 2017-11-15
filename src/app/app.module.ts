@@ -1,3 +1,4 @@
+import { AdminAuthGuardService } from './services/admin-auth-guard.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { environment } from '../environments/environment';
@@ -54,13 +55,14 @@ import { LoginComponent } from './components/login/login.component';
       { path: 'check-out', component: CheckOutComponent, canActivate: [AuthGuardService]  },
       { path: 'order-success', component: OrderSuccessComponent, canActivate: [AuthGuardService]  },
       // Only Admin accessable
-      { path: 'admin/products', component: AdminProductsComponent, canActivate: [AuthGuardService]  },
-      { path: 'admin/orders', component: AdminOrdersComponent, canActivate: [AuthGuardService]  }
+      { path: 'admin/products', component: AdminProductsComponent, canActivate: [AuthGuardService, AdminAuthGuardService]  },
+      { path: 'admin/orders', component: AdminOrdersComponent, canActivate: [AuthGuardService, AdminAuthGuardService]  }
     ])
   ],
   providers: [
     AuthService,
     AuthGuardService,
+    AdminAuthGuardService,
     UserService
   ],
   bootstrap: [AppComponent]
