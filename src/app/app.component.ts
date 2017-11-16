@@ -21,6 +21,7 @@ export class AppComponent {
 
         let returnUrl = localStorage.getItem('returnUrl');
         this.router.navigate([returnUrl]);
+        localStorage.removeItem('returnUrl');
       }
     });
   }

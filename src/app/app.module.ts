@@ -1,3 +1,4 @@
+import { CategoryService } from './services/category.service';
 import { AdminAuthGuardService } from './services/admin-auth-guard.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -23,6 +24,7 @@ import { MyOrdersComponent } from './components/my-orders/my-orders.component';
 import { AdminProductsComponent } from './components/admin/admin-products/admin-products.component';
 import { AdminOrdersComponent } from './components/admin/admin-orders/admin-orders.component';
 import { LoginComponent } from './components/login/login.component';
+import { ProductFormComponent } from './components/admin/product-form/product-form.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,8 @@ import { LoginComponent } from './components/login/login.component';
     MyOrdersComponent,
     AdminProductsComponent,
     AdminOrdersComponent,
-    LoginComponent
+    LoginComponent,
+    ProductFormComponent
   ],
   imports: [
     BrowserModule,
@@ -56,6 +59,7 @@ import { LoginComponent } from './components/login/login.component';
       { path: 'order-success', component: OrderSuccessComponent, canActivate: [AuthGuardService]  },
       // Only Admin accessable
       { path: 'admin/products', component: AdminProductsComponent, canActivate: [AuthGuardService, AdminAuthGuardService]  },
+      { path: 'admin/products/new', component: ProductFormComponent, canActivate: [AuthGuardService, AdminAuthGuardService]  },
       { path: 'admin/orders', component: AdminOrdersComponent, canActivate: [AuthGuardService, AdminAuthGuardService]  }
     ])
   ],
@@ -63,7 +67,8 @@ import { LoginComponent } from './components/login/login.component';
     AuthService,
     AuthGuardService,
     AdminAuthGuardService,
-    UserService
+    UserService,
+    CategoryService
   ],
   bootstrap: [AppComponent]
 })
