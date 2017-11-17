@@ -1,3 +1,4 @@
+import { Product } from './../../../models/product';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ProductService } from '../../../services/product.service';
 
@@ -9,8 +10,8 @@ import { ProductService } from '../../../services/product.service';
 })
 export class AdminProductsComponent implements OnInit {
 
-  products: any[];
-  filteredProducts: any[];
+  products: Product[];
+  filteredProducts: Product[];
 
   constructor(private productService: ProductService) { 
 
@@ -19,7 +20,7 @@ export class AdminProductsComponent implements OnInit {
 
   filter(query) {
     this.filteredProducts = query ?
-      this.products.filter(products => products.payload.val().title.toLowerCase().includes(query.toLowerCase())) :
+      this.products.filter(product => product.title.toLowerCase().includes(query.toLowerCase())) :
       this.products;
   }
 

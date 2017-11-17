@@ -11,7 +11,11 @@ export class ProductService {
   }
 
   getAll() {
-    return this.db.list('products').snapshotChanges();
+    return this.db.list('products').snapshotChanges().map(products => 
+      products.map(product => {
+        return { key: product.payload.key, ...product.payload.val() }
+      })
+    );
   }
 
   get(productId) {
