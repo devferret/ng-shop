@@ -11,6 +11,7 @@ import { RouterModule } from '@angular/router';
 import { NgbModule, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 import { CustomFormsModule } from 'ng2-validation';
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 
 import { AuthService } from './services/auth.service';
 import { AuthGuardService } from './services/auth-guard.service';
@@ -48,6 +49,7 @@ import { ProductFormComponent } from './components/admin/product-form/product-fo
     BrowserModule,
     FormsModule,
     CustomFormsModule,
+    NgxDatatableModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     AngularFireAuthModule,

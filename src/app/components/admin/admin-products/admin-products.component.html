@@ -10,22 +10,27 @@
   <input #query (keyup)="filter(query.value)" type="text" placeholder="Search" class="form-control">
 </p>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Price</th>
-      <th></th>
-    </tr>
-  </thead>
+<ngx-datatable
+  class="material"
+  [rows]="filteredProducts"
+  [rowHeight]="50"
+  [limit]="10"
+  [headerHeight]="'auto'"
+  [footerHeight]="50"
+  [columnMode]="'force'">
 
-  <tbody>
-    <tr *ngFor="let product of filteredProducts">
-      <td>{{ product.title }}</td>
-      <td>{{ product.price }}</td>
-      <td>
-        <a [routerLink]="['/admin/products/', product.key]">Edit</a>
-      </td>
-    </tr>
-  </tbody>
-</table>
+  <ngx-datatable-column name="Title" prop="title"></ngx-datatable-column>
+
+  <ngx-datatable-column name="Price" prop="price">
+    <ng-template ngx-datatable-cell-template let-value="value">
+      {{ value | currency:'USD' }}
+    </ng-template>
+  </ngx-datatable-column>
+
+  <ngx-datatable-column name="" prop="key">
+    <ng-template ngx-datatable-cell-template let-value="value">
+      <a [routerLink]="['/admin/products/', value]">Edit</a>
+    </ng-template>
+  </ngx-datatable-column>
+
+</ngx-datatable>
