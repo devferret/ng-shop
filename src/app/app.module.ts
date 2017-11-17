@@ -63,8 +63,9 @@ import { ProductFormComponent } from './components/admin/product-form/product-fo
       { path: 'check-out', component: CheckOutComponent, canActivate: [AuthGuardService]  },
       { path: 'order-success', component: OrderSuccessComponent, canActivate: [AuthGuardService]  },
       // Only Admin accessable
-      { path: 'admin/products', component: AdminProductsComponent, canActivate: [AuthGuardService, AdminAuthGuardService]  },
       { path: 'admin/products/new', component: ProductFormComponent, canActivate: [AuthGuardService, AdminAuthGuardService]  },
+      { path: 'admin/products/:id', component: ProductFormComponent, canActivate: [AuthGuardService, AdminAuthGuardService]  },
+      { path: 'admin/products', component: AdminProductsComponent, canActivate: [AuthGuardService, AdminAuthGuardService]  },
       { path: 'admin/orders', component: AdminOrdersComponent, canActivate: [AuthGuardService, AdminAuthGuardService]  }
     ])
   ],
