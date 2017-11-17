@@ -9,11 +9,18 @@ import { ProductService } from '../../../services/product.service';
 })
 export class AdminProductsComponent implements OnInit {
 
-  products$;
+  products: any[];
+  filteredProducts: any[];
 
   constructor(private productService: ProductService) { 
 
-    this.products$ = this.productService.getAll();
+    this.productService.getAll().subscribe(products => this.filteredProducts = this.products = products);
+  }
+
+  filter(query) {
+    this.filteredProducts = query ?
+      this.products.filter(products => products.payload.val().title.toLowerCase().includes(query.toLowerCase())) :
+      this.products;
   }
 
   ngOnInit() {
