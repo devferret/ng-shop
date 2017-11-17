@@ -16,13 +16,14 @@ export class AppComponent {
     private router: Router) {
     
       auth.user$.subscribe(user => {
-      if (user) {
-        this.userService.save(user);
-
-        let returnUrl = localStorage.getItem('returnUrl');
-        if (returnUrl) this.router.navigate([returnUrl]);
-        localStorage.removeItem('returnUrl');
-      }
+      if (!user) return;
+      this.userService.save(user);
+      
+      let returnUrl = localStorage.getItem('returnUrl');
+      localStorage.removeItem('returnUrl');
+      
+      if (!returnUrl) return;      
+      this.router.navigate([returnUrl]);
     });
   }
 }
