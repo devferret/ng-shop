@@ -32,6 +32,7 @@ import { ProductFormComponent } from './components/admin/product-form/product-fo
 import { ProductFilterComponent } from './components/products/product-filter/product-filter.component';
 import { ProductCardComponent } from './components/products/product-card/product-card.component';
 import { ShoppingCartService } from './services/shopping-cart.service';
+import { InputFirstCapDirective } from './directives/input-first-cap.directive';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { ShoppingCartService } from './services/shopping-cart.service';
     LoginComponent,
     ProductFormComponent,
     ProductFilterComponent,
-    ProductCardComponent
+    ProductCardComponent,
+    InputFirstCapDirective
   ],
   imports: [
     BrowserModule,
