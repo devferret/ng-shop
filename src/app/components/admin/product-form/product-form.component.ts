@@ -2,6 +2,7 @@ import { CategoryService } from './../../../services/category.service';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ProductService } from '../../../services/product.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { Product } from '../../../models/product';
 import 'rxjs/add/operator/take'
 
 @Component({
@@ -32,7 +33,8 @@ export class ProductFormComponent implements OnInit {
   ngOnInit() {
   }
 
-  save(product) {
+  save(product: Product) {
+    product.title = product.title.charAt(0).toUpperCase() + product.title.substr(1).toLowerCase();
     if (this.id) this.productService.update(this.id, product);
     else this.productService.create(product);
     
