@@ -33,13 +33,24 @@ export class ShoppingCartService {
     return cartId;
   }
 
-  async addToCart(product: Product) { 
+  // async addToCart(product: Product) { 
+  //   let cartId = await this.getOrCreateCartId();
+  //   let item$ = this.getCartItem(cartId, product.key);
+  //   item$.valueChanges().take(1).subscribe(item => {
+  //     item$.update({ 
+  //       product: product, 
+  //       quantity: item ? item['quantity'] + 1 : 1 
+  //     })
+  //   });
+  // }
+
+  async updateCart(product: Product, change: number) {
     let cartId = await this.getOrCreateCartId();
     let item$ = this.getCartItem(cartId, product.key);
     item$.valueChanges().take(1).subscribe(item => {
       item$.update({ 
         product: product, 
-        quantity: item ? item['quantity'] + 1 : 1 
+        quantity: item ? item['quantity'] + change : 1 
       })
     });
   }
