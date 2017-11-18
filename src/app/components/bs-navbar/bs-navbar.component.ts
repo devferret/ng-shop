@@ -1,6 +1,7 @@
 import { AppUser } from './../../models/app-user';
 import { AuthService } from '../../services/auth.service';
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component, ViewEncapsulation, OnInit } from '@angular/core';
+import { ShoppingCartService } from '../../services/shopping-cart.service';
 
 @Component({
   selector: 'bs-navbar',
@@ -8,12 +9,16 @@ import { Component, ViewEncapsulation } from '@angular/core';
   styleUrls: ['./bs-navbar.component.css'],
   encapsulation: ViewEncapsulation.None
 })
-export class BsNavbarComponent {
+export class BsNavbarComponent implements OnInit {
 
   appUser: AppUser;
+  cart$;
 
-  constructor(public auth: AuthService) { 
-    this.auth.appUser$.subscribe(appUser => this.appUser = appUser);  
+  constructor(public auth: AuthService, private cartService: ShoppingCartService) { }
+
+  async ngOnInit() {
+    this.auth.appUser$.subscribe(appUser => this.appUser = appUser);
+    this.cart$ = (await this.cartService.getCart());
   }
 
   logout() {

@@ -1,4 +1,5 @@
-import { CartItem } from './../models/cart';
+import { Observable } from 'rxjs/Observable';
+import { CartItem, Cart } from './../models/cart';
 import { Product } from './../models/product';
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from 'angularfire2/database';
@@ -15,9 +16,10 @@ export class ShoppingCartService {
     });
   }
 
-  async getCart() {
+  async getCart(): Promise<Observable<Cart>> {
     let cartId = await this.getOrCreateCartId();
-    return this.db.object(`shopping-carts/${cartId}`);
+    return this.db.object(`shopping-carts/${cartId}`).valueChanges()
+      .map(cart => new Cart((cart as Cart).items));
   }
 
   private getCartItem(cartId: string, productId: string) {
@@ -32,17 +34,6 @@ export class ShoppingCartService {
     }
     return cartId;
   }
-
-  // async addToCart(product: Product) { 
-  //   let cartId = await this.getOrCreateCartId();
-  //   let item$ = this.getCartItem(cartId, product.key);
-  //   item$.valueChanges().take(1).subscribe(item => {
-  //     item$.update({ 
-  //       product: product, 
-  //       quantity: item ? item['quantity'] + 1 : 1 
-  //     })
-  //   });
-  // }
 
   async updateCart(product: Product, change: number) {
     let cartId = await this.getOrCreateCartId();
