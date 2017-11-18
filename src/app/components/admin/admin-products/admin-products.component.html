@@ -1,36 +1,38 @@
-<p>
-  <button 
-    class="btn btn-primary"
-    routerLink="/admin/products/new">
-    New Products
-  </button>
-</p>
+<div class="container">
+  <p>
+    <button 
+      class="btn btn-primary"
+      routerLink="/admin/products/new">
+      New Products
+    </button>
+  </p>
 
-<p>
-  <input #query (keyup)="filter(query.value)" type="text" placeholder="Search" class="form-control">
-</p>
+  <p>
+    <input #query (keyup)="filter(query.value)" type="text" placeholder="Search" class="form-control">
+  </p>
 
-<ngx-datatable
-  class="material"
-  [rows]="filteredProducts"
-  [rowHeight]="50"
-  [limit]="10"
-  [headerHeight]="'auto'"
-  [footerHeight]="50"
-  [columnMode]="'force'">
+  <ngx-datatable
+    class="material"
+    [rows]="filteredProducts"
+    [rowHeight]="50"
+    [limit]="10"
+    [headerHeight]="'auto'"
+    [footerHeight]="50"
+    [columnMode]="'force'">
 
-  <ngx-datatable-column name="Title" prop="title"></ngx-datatable-column>
+    <ngx-datatable-column name="Title" prop="title"></ngx-datatable-column>
 
-  <ngx-datatable-column name="Price" prop="price">
-    <ng-template ngx-datatable-cell-template let-value="value">
-      {{ value | currency:'USD' }}
-    </ng-template>
-  </ngx-datatable-column>
+    <ngx-datatable-column name="Price" prop="price">
+      <ng-template ngx-datatable-cell-template let-value="value">
+        {{ value | currency:'USD' }}
+      </ng-template>
+    </ngx-datatable-column>
 
-  <ngx-datatable-column name="" prop="key">
-    <ng-template ngx-datatable-cell-template let-value="value">
-      <a [routerLink]="['/admin/products/', value]">Edit</a>
-    </ng-template>
-  </ngx-datatable-column>
+    <ngx-datatable-column name="" prop="key">
+      <ng-template ngx-datatable-cell-template let-value="value">
+        <a [routerLink]="['/admin/products/', value]">Edit</a>
+      </ng-template>
+    </ngx-datatable-column>
 
-</ngx-datatable>
+  </ngx-datatable>
+</div>

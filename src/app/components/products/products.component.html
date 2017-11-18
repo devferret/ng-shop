@@ -1,3 +1,36 @@
-<p>
-  products works!
-</p>
+<div class="row">
+  <div class="col-md-4 col-lg-4 col-xl-2">
+    <div class="list-group">
+      <a
+        class="list-group-item list-group-item-action"
+        routerLink="/products" 
+        [class.active]="!category">
+        All Categories
+      </a>
+      <a
+        *ngFor="let c of categories$ | async" 
+        class="list-group-item list-group-item-action"
+        routerLink="/products"
+        [queryParams]="{ category: c.key }"
+        [class.active]="category === c.key">
+          {{ c.name }}
+      </a>
+    </div>
+  </div>
+  <div class="col">
+    <div class="row">
+      <div 
+        *ngFor="let product of filteredProducts"
+        class="col">
+        <div class="card" style="width: 20rem;">
+          <img class="card-img-top" [src]="product.imageUrl">
+          <div class="card-body">
+            <h4 class="card-title">{{ product.title }}</h4>
+            <p class="card-text">{{ product.price | currency:'USD' }}</p>
+            <a href="#" class="btn btn-primary">Add to cart</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
