@@ -29,6 +29,7 @@ import { AdminProductsComponent } from './components/admin/admin-products/admin-
 import { AdminOrdersComponent } from './components/admin/admin-orders/admin-orders.component';
 import { LoginComponent } from './components/login/login.component';
 import { ProductFormComponent } from './components/admin/product-form/product-form.component';
+import { ProductFilterComponent } from './components/products/product-filter/product-filter.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { ProductFormComponent } from './components/admin/product-form/product-fo
     AdminProductsComponent,
     AdminOrdersComponent,
     LoginComponent,
-    ProductFormComponent
+    ProductFormComponent,
+    ProductFilterComponent
   ],
   imports: [
     BrowserModule,
