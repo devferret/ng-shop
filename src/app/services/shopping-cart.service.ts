@@ -35,6 +35,11 @@ export class ShoppingCartService {
     return cartId;
   }
 
+  async clearCart() {
+    let cartId = await this.getOrCreateCartId();
+    this.db.object(`shopping-carts/${cartId}/items`).remove();
+  }
+
   async updateCartItem(product: Product, change: number) {
     let cartId = await this.getOrCreateCartId();
     let item$ = this.getCartItem(cartId, product.$key);
