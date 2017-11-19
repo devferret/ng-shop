@@ -1,5 +1,5 @@
 import { Observable } from 'rxjs/Observable';
-import { CartItem, Cart } from './../models/cart';
+import { Cart } from './../models/cart';
 import { Product } from './../models/product';
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from 'angularfire2/database';
@@ -35,12 +35,14 @@ export class ShoppingCartService {
     return cartId;
   }
 
-  async updateCart(product: Product, change: number) {
+  async updateCartItem(product: Product, change: number) {
     let cartId = await this.getOrCreateCartId();
-    let item$ = this.getCartItem(cartId, product.key);
+    let item$ = this.getCartItem(cartId, product.$key);
     item$.valueChanges().take(1).subscribe(item => {
       item$.update({ 
-        product: product, 
+        title: product.title,
+        price: product.price,
+        imageUrl: product.imageUrl,
         quantity: item ? item['quantity'] + change : 1 
       })
     });

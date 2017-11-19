@@ -8,7 +8,10 @@ export class Cart {
     constructor(public itemsMap: { [productId: string]: CartItem }) { 
         for (let productId in itemsMap) {
             let item = itemsMap[productId];
-            this.items.push(new CartItem(item.product, item.quantity));
+            let cartItem = new CartItem();
+            Object.assign(cartItem, item);
+            cartItem.$key = productId;
+            this.items.push(cartItem);
         }
     }
 
@@ -26,8 +29,8 @@ export class Cart {
         return totalPrice;
     }
 
-    getQuantity(product: Product) {    
-        let item = this.itemsMap[product.key];
+    getQuantity(product: Product) {  
+        let item = this.itemsMap[product.$key];
         return item ? item.quantity : 0;
     }
 }
