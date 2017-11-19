@@ -1,4 +1,4 @@
-import { CartItem } from './cart';
+import { CartItem } from './cart-item';
 import { Product } from './product';
 
 export class Cart {
@@ -6,8 +6,10 @@ export class Cart {
     dateCreated: string;
 
     constructor(public itemsMap: { [productId: string]: CartItem }) { 
-        for (let productId in itemsMap)
-            this.items.push(itemsMap[productId]);
+        for (let productId in itemsMap) {
+            let item = itemsMap[productId];
+            this.items.push(new CartItem(item.product, item.quantity));
+        }
     }
 
     get totalItemCount() { 
@@ -16,9 +18,11 @@ export class Cart {
             count += this.items[productId].quantity;
         return count;
     }
-}
 
-export interface CartItem {
-    product: Product,
-    quantity: number
+    get totalPrice() {
+        let totalPrice = 0;
+        for (let productId in this.items)
+            totalPrice += this.items[productId].totalPrice;
+        return totalPrice;
+    }
 }
