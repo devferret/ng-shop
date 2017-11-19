@@ -8,10 +8,7 @@ export class Cart {
     constructor(public itemsMap: { [productId: string]: CartItem }) { 
         for (let productId in itemsMap) {
             let item = itemsMap[productId];
-            let cartItem = new CartItem();
-            Object.assign(cartItem, item);
-            cartItem.$key = productId;
-            this.items.push(cartItem);
+            this.items.push(new CartItem({ $key: productId, ...item }));
         }
     }
 

@@ -7,6 +7,10 @@ export class CartItem {
   imageUrl: string;
   quantity: number;
 
+  constructor(init?: Partial<CartItem>) {
+    Object.assign(this, init);
+  }
+
   get totalPrice(): number {
     return this.price * this.quantity;
   }
