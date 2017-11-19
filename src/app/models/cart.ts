@@ -25,4 +25,9 @@ export class Cart {
             totalPrice += this.items[productId].totalPrice;
         return totalPrice;
     }
+
+    getQuantity(product: Product) {    
+        let item = this.itemsMap[product.key];
+        return item ? item.quantity : 0;
+    }
 }

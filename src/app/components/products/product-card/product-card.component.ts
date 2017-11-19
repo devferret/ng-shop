@@ -21,17 +21,6 @@ export class ProductCardComponent implements OnInit {
     this.cartService.updateCart(this.product, 1);
   }
 
-  removeFromCart() {
-    this.cartService.updateCart(this.product, -1);
-  }
-
-  getQuantity() {
-    if (!this.cart) return 0;
-
-    let item = this.cart.items[this.product.key];
-    return item ? item.quantity : 0;
-  }
-
   ngOnInit() {
   }
 }
