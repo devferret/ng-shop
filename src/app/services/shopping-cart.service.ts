@@ -39,12 +39,17 @@ export class ShoppingCartService {
     let cartId = await this.getOrCreateCartId();
     let item$ = this.getCartItem(cartId, product.$key);
     item$.valueChanges().take(1).subscribe(item => {
-      item$.update({ 
-        title: product.title,
-        price: product.price,
-        imageUrl: product.imageUrl,
-        quantity: item ? item['quantity'] + change : 1 
-      })
+      let quantity = item ?  item['quantity'] + change : 1;
+      
+      if (quantity < 1) 
+        this.getCartItem(cartId, product.$key).remove();
+      else
+        item$.update({ 
+          title: product.title,
+          price: product.price,
+          imageUrl: product.imageUrl,
+          quantity: quantity
+        })
     });
   }
 }
