@@ -2,9 +2,11 @@
   <div class="col-2">
     <button (click)="removeFromCart()" class="btn btn-primary btn-block">-</button>
   </div>
-  <h6 class="col text-center">
-     {{ cart.getQuantity(product) }} in cart
-  </h6>
+  <div class="col align-self-center">
+    <h6 class="text-center">
+      {{ cart.getQuantity(product) }} in cart
+    </h6>
+  </div>
   <div class="col-2">
     <button (click)="addToCart()" class="btn btn-primary btn-block">+</button>
   </div>
