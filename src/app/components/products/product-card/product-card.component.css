@@ -1,14 +1,28 @@
 .card {
     margin: auto;
     margin-bottom: 30px;
-    -webkit-box-shadow: 0px 5px 31px -1px rgba(173,173,173,1);
-    -moz-box-shadow: 0px 5px 31px -1px rgba(173,173,173,1);
     box-shadow: 0px 5px 31px -1px rgba(173,173,173,1);
+    -moz-box-shadow: 0px 5px 31px -1px rgba(173,173,173,1);
+    -webkit-box-shadow: 0px 5px 31px -1px rgba(173,173,173,1);
+}
+
+.card-img {
+    position: relative;
+    overflow: hidden;
 }
 
 .card-img-top {
     height: 200px;
     object-fit: cover;
+    transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -webkit-transition: all 1s ease-in-out;
+}
+
+.card-img-top:hover {
+    transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -webkit-transform: scale(1.1);
 }
 
 button {
