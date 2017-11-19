@@ -12,7 +12,7 @@
       <li class="nav-item">
         <a class="nav-link" routerLink="/shopping-cart">
           Shopping Cart
-          <span class="badge badge-danger" *ngIf="cart$ | async as cart">
+          <span class="badge badge-danger" *ngIf="cart$ | async as cart" [hidden]="cart.totalItemCount === 0">
             {{ cart.totalItemCount }}
           </span>
         </a>
