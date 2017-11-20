@@ -1,12 +1,10 @@
 <div class="container">
   <p>
-    <button 
-      routerLink="/admin/products"
-      class="btn btn-primary">
+    <button routerLink="/admin/products" class="btn btn-secondary">
       Back
     </button>
   </p>
-
+  <hr>
   <div class="row">
     <div class="col-md-6">
       <form #f="ngForm" (ngSubmit)="save(f.value)">
@@ -59,9 +57,13 @@
           </div>
         </div>
       
-        <!-- Submit -->
-        <button class="btn btn-primary" [disabled]="f.invalid">Save</button>
-        <button (click)="delete()" type="button" class="btn btn-danger" *ngIf="id">Delete</button>
+        <!-- Actions -->
+        <button class="btn btn-primary" [disabled]="f.invalid">
+          Save
+        </button>
+        <button (click)="delete()" type="button" class="btn btn-danger" *ngIf="id">
+          Delete
+        </button>
       </form>
     </div>
 
