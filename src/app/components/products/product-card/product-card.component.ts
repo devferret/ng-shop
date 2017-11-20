@@ -7,7 +7,7 @@ import { Cart } from '../../../models/cart';
   selector: 'product-card',
   templateUrl: './product-card.component.html',
   styleUrls: ['./product-card.component.css'],
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.Emulated
 })
 export class ProductCardComponent implements OnInit {
 

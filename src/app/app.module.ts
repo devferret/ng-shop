@@ -36,6 +36,7 @@ import { ShoppingCartService } from './services/shopping-cart.service';
 import { InputFirstCapDirective } from './directives/input-first-cap.directive';
 import { ProductQuantityComponent } from './components/products/product-quantity/product-quantity.component';
 import { ShoppingCartSummaryComponent } from './components/shopping-cart-summary/shopping-cart-summary.component';
+import { ShippingFormComponent } from './components/shipping-form/shipping-form.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { ShoppingCartSummaryComponent } from './components/shopping-cart-summary
     ProductCardComponent,
     InputFirstCapDirective,
     ProductQuantityComponent,
-    ShoppingCartSummaryComponent
+    ShoppingCartSummaryComponent,
+    ShippingFormComponent
   ],
   imports: [
     BrowserModule,
