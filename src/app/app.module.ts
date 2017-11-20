@@ -16,6 +16,7 @@ import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { AuthService } from './services/auth.service';
 import { AuthGuardService } from './services/auth-guard.service';
 import { UserService } from './services/user.service';
+import { OrderService } from './services/order.service'
 
 import { AppComponent } from './app.component';
 import { BsNavbarComponent } from './components/bs-navbar/bs-navbar.component';
@@ -87,7 +88,8 @@ import { ProductQuantityComponent } from './components/products/product-quantity
     UserService,
     CategoryService,
     ProductService,
-    ShoppingCartService
+    ShoppingCartService,
+    OrderService
   ],
   bootstrap: [AppComponent]
 })
