@@ -73,7 +73,7 @@ import { ProductQuantityComponent } from './components/products/product-quantity
       // Normal User accessable
       { path: 'my-orders', component: MyOrdersComponent, canActivate: [AuthGuardService] },
       { path: 'check-out', component: CheckOutComponent, canActivate: [AuthGuardService]  },
-      { path: 'order-success', component: OrderSuccessComponent, canActivate: [AuthGuardService]  },
+      { path: 'order-success/:id', component: OrderSuccessComponent, canActivate: [AuthGuardService]  },
       // Only Admin accessable
       { path: 'admin/products/new', component: ProductFormComponent, canActivate: [AuthGuardService, AdminAuthGuardService]  },
       { path: 'admin/products/:id', component: ProductFormComponent, canActivate: [AuthGuardService, AdminAuthGuardService]  },
