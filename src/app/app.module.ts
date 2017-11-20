@@ -37,6 +37,7 @@ import { InputFirstCapDirective } from './directives/input-first-cap.directive';
 import { ProductQuantityComponent } from './components/products/product-quantity/product-quantity.component';
 import { ShoppingCartSummaryComponent } from './components/shopping-cart-summary/shopping-cart-summary.component';
 import { ShippingFormComponent } from './components/shipping-form/shipping-form.component';
+import { NotAvailableComponent } from './components/not-available/not-available.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import { ShippingFormComponent } from './components/shipping-form/shipping-form.
     InputFirstCapDirective,
     ProductQuantityComponent,
     ShoppingCartSummaryComponent,
-    ShippingFormComponent
+    ShippingFormComponent,
+    NotAvailableComponent
   ],
   imports: [
     BrowserModule,
@@ -69,6 +71,7 @@ import { ShippingFormComponent } from './components/shipping-form/shipping-form.
     AngularFireAuthModule,
     NgbModule.forRoot(),
     RouterModule.forRoot([
+      { path: '**', component: NotAvailableComponent },
       // Anonymouse accessable
       { path: '', component: HomeComponent },
       { path: 'products', component: ProductsComponent },
