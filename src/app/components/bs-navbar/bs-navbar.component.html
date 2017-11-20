@@ -7,10 +7,10 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link" routerLink="/products">Products</a>
+        <a class="nav-link" routerLink="/products" [routerLinkActive]="['active']">Products</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/shopping-cart">
+        <a class="nav-link" routerLink="/shopping-cart" [routerLinkActive]="['active']">
           Shopping Cart
           <span class="badge badge-danger" *ngIf="cart$ | async as cart" [hidden]="cart.totalItemCount === 0">
             {{ cart.totalItemCount }}
