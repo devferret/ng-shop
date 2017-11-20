@@ -71,7 +71,6 @@ import { NotAvailableComponent } from './components/not-available/not-available.
     AngularFireAuthModule,
     NgbModule.forRoot(),
     RouterModule.forRoot([
-      { path: '**', component: NotAvailableComponent },
       // Anonymouse accessable
       { path: '', component: HomeComponent },
       { path: 'products', component: ProductsComponent },
@@ -85,7 +84,9 @@ import { NotAvailableComponent } from './components/not-available/not-available.
       { path: 'admin/products/new', component: ProductFormComponent, canActivate: [AuthGuardService, AdminAuthGuardService]  },
       { path: 'admin/products/:id', component: ProductFormComponent, canActivate: [AuthGuardService, AdminAuthGuardService]  },
       { path: 'admin/products', component: AdminProductsComponent, canActivate: [AuthGuardService, AdminAuthGuardService]  },
-      { path: 'admin/orders', component: AdminOrdersComponent, canActivate: [AuthGuardService, AdminAuthGuardService]  }
+      { path: 'admin/orders', component: AdminOrdersComponent, canActivate: [AuthGuardService, AdminAuthGuardService]  },
+      //
+      { path: '**', component: NotAvailableComponent }
     ])
   ],
   providers: [
