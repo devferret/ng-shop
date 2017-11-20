@@ -1,3 +1,19 @@
-<p>
-  my-orders works!
-</p>
+<div class="container">
+  <h1>My Orders</h1>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Date</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let order of orders$ | async">
+        <td>{{ order.shipping.name }}</td>
+        <td>{{ order.datePlaced | date:'longDate' }}</td>
+        <td><a href="#">view</a></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
