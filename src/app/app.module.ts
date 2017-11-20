@@ -35,6 +35,7 @@ import { ProductCardComponent } from './components/products/product-card/product
 import { ShoppingCartService } from './services/shopping-cart.service';
 import { InputFirstCapDirective } from './directives/input-first-cap.directive';
 import { ProductQuantityComponent } from './components/products/product-quantity/product-quantity.component';
+import { ShoppingCartSummaryComponent } from './components/shopping-cart-summary/shopping-cart-summary.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { ProductQuantityComponent } from './components/products/product-quantity
     ProductFilterComponent,
     ProductCardComponent,
     InputFirstCapDirective,
-    ProductQuantityComponent
+    ProductQuantityComponent,
+    ShoppingCartSummaryComponent
   ],
   imports: [
     BrowserModule,
