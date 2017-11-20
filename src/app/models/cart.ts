@@ -5,7 +5,7 @@ export class Cart {
     items: CartItem[] = [];
     dateCreated: string;
 
-    constructor(public itemsMap: { [productId: string]: CartItem }) { 
+    constructor(private itemsMap: { [productId: string]: CartItem }) { 
         for (let productId in itemsMap) {
             let item = itemsMap[productId];
             this.items.push(new CartItem({ $key: productId, ...item }));
