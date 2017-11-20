@@ -28,7 +28,7 @@
       </ng-template>
     </ngx-datatable-column>
 
-    <ngx-datatable-column name="" prop="key">
+    <ngx-datatable-column name="" prop="$key">
       <ng-template ngx-datatable-cell-template let-value="value">
         <a [routerLink]="['/admin/products/', value]">Edit</a>
       </ng-template>
