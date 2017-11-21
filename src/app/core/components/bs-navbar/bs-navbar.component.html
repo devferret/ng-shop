@@ -18,7 +18,7 @@
         <a class="nav-link" routerLink="/shopping-cart" [routerLinkActive]="['active']">
           <i class="fa fa-shopping-cart" aria-hidden="true"></i>
           Shopping Cart
-          <span class="badge badge-danger" *ngIf="cart$ | async as cart" [hidden]="cart.totalItemCount === 0">
+          <span class="badge badge-warning" *ngIf="cart$ | async as cart" [hidden]="cart.totalItemCount === 0">
             {{ cart.totalItemCount }}
           </span>
         </a>

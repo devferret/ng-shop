@@ -11,7 +11,7 @@ import { NotAvailableComponent } from './components/not-available/not-available.
   imports: [
     SharedModule,
     RouterModule.forChild([
-      { path: '', component: HomeComponent },
+      { path: '', redirectTo: '/products', pathMatch: 'full' },
       { path: 'login', component: LoginComponent },
     ])
   ],
