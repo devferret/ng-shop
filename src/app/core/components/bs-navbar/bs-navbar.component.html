@@ -1,5 +1,7 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-primary fixed-top">
-  <a class="navbar-brand" routerLink="/">O</a>
+  <a class="navbar-brand" routerLink="/">
+    <i class="fa fa-lemon-o" aria-hidden="true"></i>
+  </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -7,10 +9,14 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link" routerLink="/products" [routerLinkActive]="['active']">Products</a>
+        <a class="nav-link" routerLink="/products" [routerLinkActive]="['active']">
+          <i class="fa fa-shopping-basket" aria-hidden="true"></i>
+          Products
+        </a>
       </li>
       <li class="nav-item">
         <a class="nav-link" routerLink="/shopping-cart" [routerLinkActive]="['active']">
+          <i class="fa fa-shopping-cart" aria-hidden="true"></i>
           Shopping Cart
           <span class="badge badge-danger" *ngIf="cart$ | async as cart" [hidden]="cart.totalItemCount === 0">
             {{ cart.totalItemCount }}
@@ -24,6 +30,7 @@
       </ng-template>
       <li *ngIf="appUser; else anonymousUser" class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" id="dropdown01" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fa fa-user" aria-hidden="true"></i>
           {{ appUser.name }}
         </a>
         <div class="dropdown-menu" aria-labelledby="dropdown01">

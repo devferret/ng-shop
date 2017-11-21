@@ -13,6 +13,7 @@
       *ngIf="cart.getQuantity(product) === 0; else updateQuantity"
       (click)="addToCart()"
       class="btn btn-primary btn-block">
+      <i class="fa fa-cart-plus" aria-hidden="true"></i>
       Add to cart
     </button>
     <ng-template #updateQuantity>
