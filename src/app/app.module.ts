@@ -8,13 +8,15 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { CustomFormsModule } from 'ng2-validation';
+import { AdminModule } from './admin/admin.module';
 import { SharedModule } from './shared/shared.module';
 
 import { environment } from '../environments/environment';
+import { AdminOrdersComponent } from './admin/components/admin-orders/admin-orders.component';
+import { AdminProductsComponent } from './admin/components/admin-products/admin-products.component';
+import { ProductFormComponent } from './admin/components/product-form/product-form.component';
+import { AdminAuthGuardService } from './admin/services/admin-auth-guard.service';
 import { AppComponent } from './app.component';
-import { AdminOrdersComponent } from './components/admin/admin-orders/admin-orders.component';
-import { AdminProductsComponent } from './components/admin/admin-products/admin-products.component';
-import { ProductFormComponent } from './components/admin/product-form/product-form.component';
 import { BsNavbarComponent } from './components/bs-navbar/bs-navbar.component';
 import { CheckOutComponent } from './components/check-out/check-out.component';
 import { HomeComponent } from './components/home/home.component';
@@ -28,7 +30,6 @@ import { ShippingFormComponent } from './components/shipping-form/shipping-form.
 import { ShoppingCartSummaryComponent } from './components/shopping-cart-summary/shopping-cart-summary.component';
 import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
 import { InputFirstCapDirective } from './directives/input-first-cap.directive';
-import { AdminAuthGuardService } from './shared/services/admin-auth-guard.service';
 import { AuthGuardService } from './shared/services/auth-guard.service';
 
 @NgModule({
@@ -41,10 +42,7 @@ import { AuthGuardService } from './shared/services/auth-guard.service';
     CheckOutComponent,
     OrderSuccessComponent,
     MyOrdersComponent,
-    AdminProductsComponent,
-    AdminOrdersComponent,
     LoginComponent,
-    ProductFormComponent,
     ProductFilterComponent,
     InputFirstCapDirective,
     ShoppingCartSummaryComponent,
@@ -54,9 +52,9 @@ import { AuthGuardService } from './shared/services/auth-guard.service';
   imports: [
     BrowserModule,
     SharedModule,
+    AdminModule,
     FormsModule,
     CustomFormsModule,
-    NgxDatatableModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
