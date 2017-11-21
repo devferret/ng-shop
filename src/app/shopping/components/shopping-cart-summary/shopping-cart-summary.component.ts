@@ -1,4 +1,4 @@
-import { Cart } from '../../shared/models/cart';
+import { Cart } from '../../../shared/models/cart';
 import { Component, OnInit, ViewEncapsulation, Input } from '@angular/core';
 
 @Component({

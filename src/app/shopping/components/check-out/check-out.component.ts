@@ -1,5 +1,5 @@
-import { Cart } from '../../shared/models/cart';
-import { ShoppingCartService } from '../../shared/services/shopping-cart.service';
+import { Cart } from '../../../shared/models/cart';
+import { ShoppingCartService } from '../../../shared/services/shopping-cart.service';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 

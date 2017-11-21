@@ -10,6 +10,7 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { CustomFormsModule } from 'ng2-validation';
 import { AdminModule } from './admin/admin.module';
 import { SharedModule } from './shared/shared.module';
+import { ShoppingModule } from './shopping/shopping.module';
 
 import { environment } from '../environments/environment';
 import { AdminOrdersComponent } from './admin/components/admin-orders/admin-orders.component';
@@ -18,17 +19,17 @@ import { ProductFormComponent } from './admin/components/product-form/product-fo
 import { AdminAuthGuardService } from './admin/services/admin-auth-guard.service';
 import { AppComponent } from './app.component';
 import { BsNavbarComponent } from './components/bs-navbar/bs-navbar.component';
-import { CheckOutComponent } from './components/check-out/check-out.component';
+import { CheckOutComponent } from './shopping/components/check-out/check-out.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
-import { MyOrdersComponent } from './components/my-orders/my-orders.component';
+import { MyOrdersComponent } from './shopping/components/my-orders/my-orders.component';
 import { NotAvailableComponent } from './components/not-available/not-available.component';
-import { OrderSuccessComponent } from './components/order-success/order-success.component';
-import { ProductFilterComponent } from './components/products/product-filter/product-filter.component';
-import { ProductsComponent } from './components/products/products.component';
-import { ShippingFormComponent } from './components/shipping-form/shipping-form.component';
-import { ShoppingCartSummaryComponent } from './components/shopping-cart-summary/shopping-cart-summary.component';
-import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
+import { OrderSuccessComponent } from './shopping/components/order-success/order-success.component';
+import { ProductFilterComponent } from './shopping/components/products/product-filter/product-filter.component';
+import { ProductsComponent } from './shopping/components/products/products.component';
+import { ShippingFormComponent } from './shopping/components/shipping-form/shipping-form.component';
+import { ShoppingCartSummaryComponent } from './shopping/components/shopping-cart-summary/shopping-cart-summary.component';
+import { ShoppingCartComponent } from './shopping/components/shopping-cart/shopping-cart.component';
 import { InputFirstCapDirective } from './directives/input-first-cap.directive';
 import { AuthGuardService } from './shared/services/auth-guard.service';
 
@@ -37,22 +38,15 @@ import { AuthGuardService } from './shared/services/auth-guard.service';
     AppComponent,
     BsNavbarComponent,
     HomeComponent,
-    ProductsComponent,
-    ShoppingCartComponent,
-    CheckOutComponent,
-    OrderSuccessComponent,
-    MyOrdersComponent,
     LoginComponent,
-    ProductFilterComponent,
     InputFirstCapDirective,
-    ShoppingCartSummaryComponent,
-    ShippingFormComponent,
     NotAvailableComponent
   ],
   imports: [
     BrowserModule,
     SharedModule,
     AdminModule,
+    ShoppingModule,
     FormsModule,
     CustomFormsModule,
     AngularFireModule.initializeApp(environment.firebase),
@@ -62,18 +56,7 @@ import { AuthGuardService } from './shared/services/auth-guard.service';
     RouterModule.forRoot([
       // Anonymouse accessable
       { path: '', component: HomeComponent },
-      { path: 'products', component: ProductsComponent },
-      { path: 'shopping-cart', component: ShoppingCartComponent },
       { path: 'login', component: LoginComponent },
-      // Normal User accessable
-      { path: 'my-orders', component: MyOrdersComponent, canActivate: [AuthGuardService] },
-      { path: 'check-out', component: CheckOutComponent, canActivate: [AuthGuardService]  },
-      { path: 'order-success/:id', component: OrderSuccessComponent, canActivate: [AuthGuardService]  },
-      // Only Admin accessable
-      { path: 'admin/products/new', component: ProductFormComponent, canActivate: [AuthGuardService, AdminAuthGuardService]  },
-      { path: 'admin/products/:id', component: ProductFormComponent, canActivate: [AuthGuardService, AdminAuthGuardService]  },
-      { path: 'admin/products', component: AdminProductsComponent, canActivate: [AuthGuardService, AdminAuthGuardService]  },
-      { path: 'admin/orders', component: AdminOrdersComponent, canActivate: [AuthGuardService, AdminAuthGuardService]  },
       //
       { path: '**', component: NotAvailableComponent }
     ])

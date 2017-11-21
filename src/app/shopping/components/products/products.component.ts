@@ -1,10 +1,10 @@
-import { Cart } from '../../shared/models/cart';
+import { Cart } from '../../../shared/models/cart';
 import { Component, OnInit, ViewEncapsulation, OnDestroy } from '@angular/core';
-import { ProductService } from '../../shared/services/product.service';
+import { ProductService } from '../../../shared/services/product.service';
 import { ActivatedRoute } from '@angular/router';
-import { Product } from '../../shared/models/product';
+import { Product } from '../../../shared/models/product';
 import { query } from '@angular/core/src/animation/dsl';
-import { ShoppingCartService } from '../../shared/services/shopping-cart.service';
+import { ShoppingCartService } from '../../../shared/services/shopping-cart.service';
 import { Observable } from 'rxjs/Observable';
 
 @Component({
