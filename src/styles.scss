@@ -1,0 +1,33 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.css";
+@import "~font-awesome/css/font-awesome.css";
+
+@import '~@swimlane/ngx-datatable/release/index.css';
+@import '~@swimlane/ngx-datatable/release/themes/material.css';
+@import '~@swimlane/ngx-datatable/release/assets/icons.css';
+
+$primary-color: #C47335;
+$primary-color-dark: #7D4A22;
+
+body {
+    padding-top: 80px;
+}
+
+.bg-primary {
+    background-color: $primary-color !important;
+}
+
+.list-group-item.active {
+    background-color: $primary-color;
+    border-color: $primary-color;
+}
+
+.btn-primary {
+    background-color: $primary-color;
+    border-color: $primary-color;
+}
+
+.btn-primary:hover {
+    background-color: $primary-color-dark;
+    border-color: $primary-color-dark;
+}
