@@ -1,6 +1,6 @@
 import { Observable } from 'rxjs/Observable';
-import { Cart } from './../models/cart';
-import { Product } from './../models/product';
+import { Cart } from '../models/cart';
+import { Product } from '../models/product';
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireObject } from 'angularfire2/database/interfaces';

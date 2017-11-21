@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewEncapsulation, Input } from '@angular/core';
-import { ShoppingCartService } from './../../../services/shopping-cart.service';
-import { Cart } from './../../../models/cart';
-import { Product } from './../../../models/product';
+import { ShoppingCartService } from '../../services/shopping-cart.service';
+import { Cart } from '../../models/cart';
+import { Product } from '../../models/product';
 
 @Component({
   selector: 'product-quantity',

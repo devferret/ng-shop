@@ -1,8 +1,8 @@
 import { Observable } from 'rxjs/Observable';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { OrderService } from '../../services/order.service';
-import { AuthService } from '../../services/auth.service';
-import { Order } from '../../models/order';
+import { OrderService } from '../../shared/services/order.service';
+import { AuthService } from '../../shared/services/auth.service';
+import { Order } from '../../shared/models/order';
 
 @Component({
   selector: 'app-my-orders',

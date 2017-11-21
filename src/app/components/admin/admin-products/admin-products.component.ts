@@ -1,6 +1,6 @@
-import { Product } from './../../../models/product';
+import { Product } from '../../../shared/models/product';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { ProductService } from '../../../services/product.service';
+import { ProductService } from '../../../shared/services/product.service';
 
 @Component({
   selector: 'app-admin-products',
