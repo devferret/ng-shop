@@ -1,3 +1,4 @@
+import { Shipping } from './../../../shared/models/shipping';
 import { Router } from '@angular/router';
 import { AuthService } from '../../../shared/services/auth.service';
 import { OrderService } from '../../../shared/services/order.service';
@@ -16,7 +17,7 @@ export class ShippingFormComponent implements OnInit {
 
   @Input('cart') cart: Cart;
   userId: string;
-  shipping = {}; 
+  shipping: Shipping; 
   authSubscription: Subscription;
 
   constructor(

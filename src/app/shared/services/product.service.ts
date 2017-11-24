@@ -1,3 +1,4 @@
+import { Product } from '../models/product';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { Injectable } from '@angular/core';
 
@@ -19,7 +20,7 @@ export class ProductService {
   }
 
   get(productId) {
-    return this.db.object(`products/${productId}`).valueChanges();
+    return this.db.object(`products/${productId}`).valueChanges<Product>();
   }
 
   update(productId, product) {
